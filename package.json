@@ -1,0 +1,32 @@
+{
+  "name": "trails-server",
+  "version": "0.0.1",
+  "description": "trails blog service server side code",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhinavvsinhaa/trails-server.git"
+  },
+  "author": "Chitwan Bindal, Abhinav Sinha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhinavvsinhaa/trails-server/issues"
+  },
+  "homepage": "https://github.com/abhinavvsinhaa/trails-server#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.20",
+    "@types/node": "^20.8.9",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
