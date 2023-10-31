@@ -5,7 +5,6 @@ dotenv.config();
 
 const app: Express = express();
 const port: string = process.env.PORT || "8080";
-var newe = "hello";
 
 app.use("/", (req: Request, res: Response) => {
 	res.send("Welcome to Trails!");
