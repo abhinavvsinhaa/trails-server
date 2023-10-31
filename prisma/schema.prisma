@@ -11,37 +11,45 @@ datasource db {
 }
 
 model User {
-  id                      String       @id
-  username                String       @unique
-  first_name              String
-  last_name               String?
-  email                   String       @unique
-  email_verified          Boolean      @default(false)
-  role                    Role         @default(USER)
-  subscription            Subscription @default(FREE)
-  subscription_valid_upto DateTime
-  phone                   String?      @unique
-  phone_verified          Boolean      @default(false)
-  password                String
-  about                   String?
-  profile_image_url       String?
-  topics                  Topic[]
-  followers               User[]       @relation("followingHistory")
-  following               User[]       @relation("followingHistory")
-  blogs                   Blog[]
+  id                    String       @id
+  username              String       @unique
+  firstName             String
+  lastName              String?
+  email                 String       @unique
+  emailVerified         Boolean      @default(false)
+  role                  Role         @default(USER)
+  subscription          Subscription @default(FREE)
+  subscriptionValidUpto DateTime
+  phone                 String?      @unique
+  phoneVerified         Boolean      @default(false)
+  password              String
+  about                 String?
+  profileImageUrl       String?
+  topics                Topic[]
+  followers             User[]       @relation("followingHistory")
+  following             User[]       @relation("followingHistory")
+  blogs                 Blog[]
+  createdAt             DateTime     @default(now())
+  updatedAt             DateTime     @updatedAt
 }
 
 model Blog {
-  id      String     @id
-  status  BlogStatus @default(DRAFT)
-  user    User       @relation(fields: [user_id], references: [id])
-  user_id String
-  content String
+  id          String     @id
+  status      BlogStatus @default(DRAFT)
+  authorId    String
+  author      User       @relation(fields: [authorId], references: [id])
+  content     String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt // will work as last edited on
+  publishedOn DateTime? // 
+  topics      Topic[]
 }
 
 model Topic {
   id        String @id
+  name      String @unique
   followers User[]
+  blogs     Blog[]
 }
 
 enum BlogStatus {
