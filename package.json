@@ -13,7 +13,6 @@
 		"lint:fix": "npm run lint -- --fix"
 	},
 	"lint-staged": {
-		"**/*": "prettier --write --ignore-unknown"
 	},
 	"repository": {
 		"type": "git",
