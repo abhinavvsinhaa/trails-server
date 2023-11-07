@@ -41,15 +41,15 @@ model Blog {
   content     String
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt // will work as last edited on
-  publishedOn DateTime? // 
+  publishedOn DateTime? // createdAt is different from publishedOn because initially it's a draft
   topics      Topic[]
 }
 
 model Topic {
-  id        String @id
-  name      String @unique
-  followers User[]
-  blogs     Blog[]
+  id         String    @id
+  name       String    @unique
+  followers  User[]
+  blogs      Blog[]
 }
 
 enum BlogStatus {
