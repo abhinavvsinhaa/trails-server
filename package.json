@@ -13,7 +13,9 @@
 		"lint:fix": "npm run lint -- --fix",
 		"test": "jest"
 	},
-	"lint-staged": {},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/abhinavvsinhaa/trails-server.git"
